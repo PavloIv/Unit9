@@ -42,7 +42,20 @@ public class Main {
         newLinkedList.add("Volvo");
         newLinkedList.add("BMW");
         newLinkedList.add(100);
+        newLinkedList.add("Mercedes");
+        newLinkedList.add("Tesla");
+        newLinkedList.add(121f);
+        newLinkedList.add("Honda");
+        newLinkedList.add("Nisan");
+        newLinkedList.add(130L);
+        newLinkedList.add("Toyota");
+        newLinkedList.add("Ford");
+        newLinkedList.add("Mazda");
         System.out.println("newLinkedList = " + newLinkedList.bustMethod());
+        newLinkedList.remove(4);
+
+        System.out.println("newLinkedList = " + newLinkedList.bustMethod());
+
 
 
 
