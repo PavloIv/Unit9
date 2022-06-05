@@ -20,7 +20,7 @@ public class MyLinkedList<E>  implements MyList {
         }else {
             theFirst.previous = newObjectLL;
         }
-        countElem++;
+//        countElem++;
         size++;
     }
 
@@ -61,23 +61,48 @@ public class MyLinkedList<E>  implements MyList {
 
         bust = null;
         countElem--;
+        size--;
     }
 
     @Override
     public void clear() {
-
+        ObjectLinkedList<E> temp = last;
+        ObjectLinkedList<E> prev = null;
+        for (;temp != null ; ) {
+            prev = temp.previous;
+            temp.elLinkedList = null;
+            temp.next = null;
+            temp.previous = null;
+            temp = prev;
+        }
+        first = last = null;
+        countElem = 0;
+        size = 0;
     }
 
-    public String bustMethod(){
+    public String InputLinkedList(){
         int countBust = 0;
         StringBuilder bustResult = new StringBuilder();
         ObjectLinkedList<E> bust = first;
-        while (countBust < countElem) {
-            bustResult.append(bust.elLinkedList.toString()).append(" , ");
+        if (bust == null){countBust++;}
+        while (countBust <= countElem) {
+            bustResult.append(bust.elLinkedList.toString()).append(" ");
             bust = bust.next;
             countBust++;
         }
         return bustResult.toString();
+    }
+    public int size(){
+        return size;
+    }
+    public E get(int index){
+        int countBust = 0;
+        ObjectLinkedList<E> bust = first;
+        for (; countBust < index; countBust++) {
+            bust = bust.next;
+        }
+        return (E) bust.elLinkedList.toString();
+
     }
 }
 
