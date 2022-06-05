@@ -2,13 +2,13 @@ package NewArrayList;
 
 import java.util.Arrays;
 
-public class MyArrayList implements MyList {
+public class MyArrayList<E> implements MyList {
 
-    Object[] tempArray;
+    E [] tempArray;
     private int cursor = 0;
 
-    public MyArrayList() {this.tempArray = new Object[DEFAULT_ARRAY_SIZE];}
-    public MyArrayList(int size){this.tempArray = new Object[size];}
+    public MyArrayList() {this.tempArray = (E[]) new Object[DEFAULT_ARRAY_SIZE];}
+    public MyArrayList(int size){this.tempArray = (E[]) new Object[size];}
 
     private void increaseArraySize() {
         if (cursor >= tempArray.length) {
@@ -17,14 +17,14 @@ public class MyArrayList implements MyList {
                 newTempArray[i] = tempArray[i];
             }
             //newTempArray = Arrays.copyOf(tempArray,tempArray.length);
-            tempArray = newTempArray;
+            tempArray = (E[]) newTempArray;
         }
     }
 
     @Override
     public void add(Object value) {
         increaseArraySize();
-        tempArray[cursor] = value;
+        tempArray[cursor] = (E) value;
         cursor++;
     }
 

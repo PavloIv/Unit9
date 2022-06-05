@@ -1,9 +1,9 @@
 package NewArrayList;
 
-public interface MyList {
+public interface MyList <E>{
     static final int DEFAULT_ARRAY_SIZE = 10;
 
-    void add(Object value);
+    void add(E value);
 
     void remove(int index);
 
