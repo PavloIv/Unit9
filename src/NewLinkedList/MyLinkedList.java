@@ -2,9 +2,6 @@ package NewLinkedList;
 
 import NewArrayList.MyList;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-
 public class MyLinkedList<E>  implements MyList {
     int countElem = 0;
     int size = 0;

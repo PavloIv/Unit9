@@ -1,6 +1,7 @@
 import NewArrayList.MyArrayList;
 import NewLinkedList.MyLinkedList;
 import NewQueue.MyQueue;
+import NewStack.MyStack;
 
 public class Main {
     public static void main(String[] args) {
@@ -107,6 +108,42 @@ public class Main {
         System.out.println(newQueue.poll());
         System.out.println("newQueue = " + newQueue.InputQueue());
 
+
+        MyStack newStack = new MyStack();
+        newStack.push("Pig");
+        newStack.push("Dog");
+        newStack.push(13);
+        newStack.push("Rabbit");
+        newStack.push("Chicken");
+        newStack.push(123.215f);
+        newStack.push("Cat");
+
+        System.out.println("newStack = " + newStack.InputStack());
+
+        newStack.remove(3);
+
+        System.out.println("newStack = " + newStack.InputStack());
+
+        newStack.clear();
+
+        System.out.println("newStack = " + newStack.InputStack());
+
+        newStack.push("Dog");
+        newStack.push(13);
+        newStack.push("Rabbit");
+        newStack.push("Chicken");
+        newStack.push(123.215f);
+        newStack.push("Cat");
+
+        System.out.println("newStack = " + newStack.InputStack());
+
+        System.out.println(newStack.size());
+
+        System.out.println(newStack.peek());
+
+        System.out.println(newStack.pop());
+
+        System.out.println("newStack = " + newStack.InputStack());
 
     }
 }
