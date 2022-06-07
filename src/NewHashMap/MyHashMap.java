@@ -21,7 +21,7 @@ public class MyHashMap<K,V> {
                 size++;
             }else {
                 while (temp.next != null) {
-                    if (Objects.equals(temp.getKey(), newElement.getKey())) {
+                    if (temp.equals(newElement)) {
                         newElement.next = temp.next;
                         temp = newElement;
                         break;
@@ -33,15 +33,24 @@ public class MyHashMap<K,V> {
             }
     }
     public  void remove(Object key){
-        ObjectHashMap<K,V> newElement = new ObjectHashMap<K, V>(key,null);
+        ObjectHashMap<K, V> newElement = new ObjectHashMap<>((K)key,null);
         ObjectHashMap temp = hashArray[counterInHashArray(newElement.hashCode())];
-            if(temp != null){
-                while (temp.next != null){
-                    if (Objects.equals(temp.next.getKey(), newElement.getKey())){
+            if (temp == null){
+
+            }else {
+                if (temp.equals(newElement)){
+                    temp.next = null;
+                    temp.setValue(null);
+                    size--;
+                }else {
+                while (temp.next != null) {
+                    if (temp.equals(newElement)) {
                         temp.next = temp.next.next;
                         size--;
                         break;
                     }
+                    temp = temp.next;
+                }
                 }
             }
      }
@@ -56,12 +65,12 @@ public class MyHashMap<K,V> {
     ObjectHashMap<K,V> newElement = new ObjectHashMap<>((K)key,null);
     ObjectHashMap<K,V> temp = hashArray[counterInHashArray(newElement.hashCode())];
     if (temp != null){
-       if (Objects.equals(temp.getKey(), newElement.getKey())){
+       if (temp.equals(newElement)){
         return  temp.getValue();
         }else {
            while (temp.next != null){
                temp = temp.next;
-               if (Objects.equals(temp.getKey(), newElement.getKey())){
+               if (temp.equals(newElement)){
                    return temp.getValue();
                }
            }
@@ -81,19 +90,31 @@ class ObjectHashMap<K, V>{
     private K key;
     private V value;
     ObjectHashMap<K,V> next;
-    public ObjectHashMap() {
+
+    ObjectHashMap(K key, V value) {
         this.key = key;
         this.value = value;
+    }
+    public void setKey() {
+        this.key = key;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
+    }
+
+    public void setNext(ObjectHashMap<K, V> next) {
         this.next = next;
     }
-    public <K, V> ObjectHashMap(K key, V value) {
-    }
+
+
     public K getKey() {
         return key;
     }
     public V getValue() {
         return value;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,6 +122,7 @@ class ObjectHashMap<K, V>{
         ObjectHashMap<?, ?> that = (ObjectHashMap<?, ?>) o;
         return key.equals(that.key);
     }
+
     @Override
     public String toString() {
         return "" + key + " = " + value;
