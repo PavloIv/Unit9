@@ -2,43 +2,44 @@ package NewLinkedList;
 
 import NewArrayList.MyList;
 
-public class MyLinkedList<E>  implements MyList {
+public class MyLinkedList<E> implements MyList {
     int countElem = 0;
     int size = 0;
     ObjectLinkedList<E> first;
     ObjectLinkedList<E> last;
 
-    void addFirst(E element){
+    void addFirst(E element) {
         ObjectLinkedList<E> theFirst = first;
-        ObjectLinkedList<E> newObjectLL = new ObjectLinkedList<>(element,theFirst,null);
+        ObjectLinkedList<E> newObjectLL = new ObjectLinkedList<>(element, theFirst, null);
         first = newObjectLL;
-        if (theFirst == null){
+        if (theFirst == null) {
             last = newObjectLL;
-        }else {
+        } else {
             theFirst.previous = newObjectLL;
         }
 //        countElem++;
         size++;
     }
 
-    void addLast(E element){
-        ObjectLinkedList<E> theLast =  last;
-        ObjectLinkedList<E> newObjectLL = new ObjectLinkedList<>( element, null, theLast);
-        last =newObjectLL;
-        if(theLast == null) {
+    void addLast(E element) {
+        ObjectLinkedList<E> theLast = last;
+        ObjectLinkedList<E> newObjectLL = new ObjectLinkedList<>(element, null, theLast);
+        last = newObjectLL;
+        if (theLast == null) {
             first = newObjectLL;
-        }else {
+        } else {
             theLast.next = newObjectLL;
         }
         size++;
         countElem++;
-}
+    }
+
     @Override
     public void add(Object value) {
-        if (size == 0){
-        addFirst((E) value);
-        }else {
-        addLast((E) value);
+        if (size == 0) {
+            addFirst((E) value);
+        } else {
+            addLast((E) value);
         }
     }
 
@@ -65,7 +66,7 @@ public class MyLinkedList<E>  implements MyList {
     public void clear() {
         ObjectLinkedList<E> temp = last;
         ObjectLinkedList<E> prev = null;
-        for (;temp != null ; ) {
+        for (; temp != null; ) {
             prev = temp.previous;
             temp.elLinkedList = null;
             temp.next = null;
@@ -77,11 +78,13 @@ public class MyLinkedList<E>  implements MyList {
         size = 0;
     }
 
-    public String InputLinkedList(){
+    public String InputLinkedList() {
         int countBust = 0;
         StringBuilder bustResult = new StringBuilder();
         ObjectLinkedList<E> bust = first;
-        if (bust == null){countBust++;}
+        if (bust == null) {
+            countBust++;
+        }
         while (countBust <= countElem) {
             bustResult.append(bust.elLinkedList.toString()).append(" ");
             bust = bust.next;
@@ -89,10 +92,12 @@ public class MyLinkedList<E>  implements MyList {
         }
         return bustResult.toString();
     }
-    public int size(){
+
+    public int size() {
         return size;
     }
-    public E get(int index){
+
+    public E get(int index) {
         int countBust = 0;
         ObjectLinkedList<E> bust = first;
         for (; countBust < index; countBust++) {
@@ -103,10 +108,10 @@ public class MyLinkedList<E>  implements MyList {
     }
 }
 
-class ObjectLinkedList <E>{
+class ObjectLinkedList<E> {
     E elLinkedList;
-    ObjectLinkedList <E> next;
-    ObjectLinkedList <E> previous;
+    ObjectLinkedList<E> next;
+    ObjectLinkedList<E> previous;
 
     public ObjectLinkedList(E elLinkedList, ObjectLinkedList<E> next, ObjectLinkedList<E> previous) {
         this.elLinkedList = elLinkedList;

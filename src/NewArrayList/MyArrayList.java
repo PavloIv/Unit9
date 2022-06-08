@@ -4,11 +4,16 @@ import java.util.Arrays;
 
 public class MyArrayList<E> implements MyList {
 
-    E [] tempArray;
+    E[] tempArray;
     private int cursor = 0;
 
-    public MyArrayList() {this.tempArray = (E[]) new Object[DEFAULT_ARRAY_SIZE];}
-    public MyArrayList(int size){this.tempArray = (E[]) new Object[size];}
+    public MyArrayList() {
+        this.tempArray = (E[]) new Object[DEFAULT_ARRAY_SIZE];
+    }
+
+    public MyArrayList(int size) {
+        this.tempArray = (E[]) new Object[size];
+    }
 
     private void increaseArraySize() {
         if (cursor >= tempArray.length) {
@@ -30,7 +35,7 @@ public class MyArrayList<E> implements MyList {
 
     @Override
     public void remove(int index) {
-        if (index >= 0 && index < cursor){
+        if (index >= 0 && index < cursor) {
             tempArray[index] = null;
         }
     }
@@ -47,15 +52,15 @@ public class MyArrayList<E> implements MyList {
         int j = 0;
         int colectionSize = 0;
         for (int i = 0; i < tempArray.length; i++) {
-            if (null == tempArray[i]){
+            if (null == tempArray[i]) {
                 j++;
-        }
+            }
             colectionSize = tempArray.length - j;
         }
         return colectionSize;
     }
 
-    public Object get(int index){
+    public Object get(int index) {
         return tempArray[index];
     }
 

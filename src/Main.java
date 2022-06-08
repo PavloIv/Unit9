@@ -23,7 +23,7 @@ public class Main {
         System.out.println("newArrayList = " + newArrayList);
 
         System.out.println(newArrayList.get(10));
-         newArrayList.add("Mustang");
+        newArrayList.add("Mustang");
         System.out.println("newArrayList = " + newArrayList);
 
 
@@ -71,7 +71,7 @@ public class Main {
         newLinkedList.add("Ford");
         newLinkedList.add("Mazda");
 
-       System.out.println("newLinkedList = " + newLinkedList.InputLinkedList());
+        System.out.println("newLinkedList = " + newLinkedList.InputLinkedList());
 
 
         MyQueue newQueue = new MyQueue();
@@ -146,18 +146,18 @@ public class Main {
 
         System.out.println("newStack = " + newStack.InputStack());
 
-        MyHashMap<String,String> newHashMap = new MyHashMap<>();
-        newHashMap.put("Rex","Dog");
-        newHashMap.put("Red","Cat");
+        MyHashMap<String, String> newHashMap = new MyHashMap<>();
+        newHashMap.put("Rex", "Dog");
+        newHashMap.put("Red", "Cat");
 
         System.out.println("newHashMap = " + newHashMap.size());
         newHashMap.clear();
         System.out.println("newHashMap = " + newHashMap.size());
 
-        newHashMap.put("Rex","Dog");
+        newHashMap.put("Rex", "Dog");
         System.out.println("newHashMap = " + newHashMap.toString());
-        newHashMap.put("Red","Cat");
-        newHashMap.put("Pink","Pig");
+        newHashMap.put("Red", "Cat");
+        newHashMap.put("Pink", "Pig");
 
 
         System.out.println("newHashMap = " + newHashMap.size());
@@ -165,7 +165,6 @@ public class Main {
         System.out.println("newHashMap = " + newHashMap.size());
         System.out.println("newHashMap = " + newHashMap.get("Red"));
         System.out.println("newHashMap = " + newHashMap.get("Pink"));
-
 
 
     }

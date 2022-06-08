@@ -1,19 +1,21 @@
 package NewQueue;
 
 import NewArrayList.MyList;
+
 public class MyQueue<E> implements MyList {
     int countElem = -1;
     int size = 0;
     ObjectQueue<E> first;
     ObjectQueue<E> last;
+
     @Override
     public void add(Object value) {
-        ObjectQueue<E> theLast =  last;
-        ObjectQueue<E> newObjectLL = new ObjectQueue<>( (E)value, null);
-        last =newObjectLL;
-        if(theLast == null) {
+        ObjectQueue<E> theLast = last;
+        ObjectQueue<E> newObjectLL = new ObjectQueue<>((E) value, null);
+        last = newObjectLL;
+        if (theLast == null) {
             first = newObjectLL;
-        }else {
+        } else {
             theLast.next = newObjectLL;
         }
         size++;
@@ -40,7 +42,7 @@ public class MyQueue<E> implements MyList {
     public void clear() {
         ObjectQueue<E> temp = first;
         ObjectQueue<E> next = null;
-        for (;temp != null ; ) {
+        for (; temp != null; ) {
             next = temp.next;
             temp.elementQueue = null;
             temp.next = null;
@@ -50,20 +52,21 @@ public class MyQueue<E> implements MyList {
         countElem = -1;
         size = 0;
     }
-    public int size(){
+
+    public int size() {
         return size;
     }
 
-    public E peek(){
-       try {
-           return (E) first.elementQueue;
-       }catch (NullPointerException e){
-           System.out.println("First element si not found");
-       }
+    public E peek() {
+        try {
+            return (E) first.elementQueue;
+        } catch (NullPointerException e) {
+            System.out.println("First element si not found");
+        }
         return null;
     }
 
-    public E poll(){
+    public E poll() {
         ObjectQueue<E> temp = first.next;
         Object ret = first.elementQueue;
         first.elementQueue = null;
@@ -74,11 +77,13 @@ public class MyQueue<E> implements MyList {
 
     }
 
-    public String InputQueue(){
+    public String InputQueue() {
         int countBust = 0;
         StringBuilder bustResult = new StringBuilder();
         ObjectQueue<E> bust = first;
-        if (bust == null){countBust++;}
+        if (bust == null) {
+            countBust++;
+        }
         while (countBust <= countElem) {
             bustResult.append(bust.elementQueue.toString()).append(" ");
             bust = bust.next;
@@ -89,7 +94,7 @@ public class MyQueue<E> implements MyList {
 
 }
 
-class ObjectQueue <E>{
+class ObjectQueue<E> {
     E elementQueue;
     ObjectQueue<E> next;
 
